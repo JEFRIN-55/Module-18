@@ -59,7 +59,7 @@ class Graph:
 
 	def KruskalMST(self):
 
-		result = [] # This will store the resultant MST
+		result = [] 
 		
 		i = 0
 		e = 0
