@@ -26,10 +26,8 @@ To write a Python program for **Prim's Minimum Spanning Tree (MST)** algorithm.
 # Reg.No- 212223060104
 # Name- JEFRIN INOLA J 
 
-# A Python program for Prim's Minimum Spanning Tree (MST) algorithm.
-# The program is for adjacency matrix representation of the graph
 
-import sys # Library for INT_MAX
+import sys 
 
 class Graph():
 
@@ -37,19 +35,13 @@ class Graph():
 		self.V = vertices
 		self.graph = [[0 for column in range(vertices)]
 					for row in range(vertices)]
-
-	# A utility function to print the constructed MST stored in parent[]
 	def printMST(self, parent):
 		print ("Edge   Weight")
 		for i in range(1, self.V):
 			print (parent[i], "-", i, "  ",self.graph[i][parent[i]])
 
-	# A utility function to find the vertex with
-	# minimum distance value, from the set of vertices
-	# not yet included in shortest path tree
 	def minKey(self, key, mstSet):
 
-		# Initialize min value
 		min = sys.maxsize
 
 		for v in range(self.V):
@@ -59,27 +51,16 @@ class Graph():
 
 		return min_index
 
-	# Function to construct and print MST for a graph
-	# represented using adjacency matrix representation
 	def primMST(self):
-
-		# Key values used to pick minimum weight edge in cut
 		key = [sys.maxsize] * self.V
-		parent = [None] * self.V # Array to store constructed MST
-		# Make key 0 so that this vertex is picked as first vertex
+		parent = [None] * self.V
 		key[0] = 0
 		mstSet = [False] * self.V
 
-		parent[0] = -1 # First node is always the root of
-
+		parent[0] = -1
 		for cout in range(self.V):
 
-			# Pick the minimum distance vertex from
-			# the set of vertices not yet processed.
-			# u is always equal to src in first iteration
 			
-			#--------
-			#code here
 			u=self.minKey(key,mstSet)
 			mstSet[u]=True
 			for v in range(self.V):
@@ -87,11 +68,6 @@ class Graph():
 			        key[v]=self.graph[u][v]
 			        parent[v]=u
 			
-			
-			#--------
-
-			# Put the minimum distance vertex in
-			# the shortest path tree
 			
 		self.printMST(parent)
 
