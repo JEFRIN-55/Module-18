@@ -24,10 +24,6 @@ Create a `sptSet[]` array (shortest path tree set) to keep track of vertices who
 # Reg.No- 212223060104
 # Name- JEFRIN INOLA J
 
-# Python program for Dijkstra's single source shortest path algorithm. 
-# The program is for adjacency matrix representation of the graph
-
-# Library for INT_MAX
 import sys
 
 class Graph():
@@ -42,16 +38,11 @@ class Graph():
 		for node in range(self.V):
 			print(node, "           ", dist[node])
 
-	# A utility function to find the vertex with
-	# minimum distance value, from the set of vertices
-	# not yet included in shortest path tree
+
 	def minDistance(self, dist, sptSet):
 
-		# Initialize minimum distance for next node
 		min = sys.maxsize
 
-		# Search not nearest vertex not in the
-		# shortest path tree
 		for u in range(self.V):
 			if dist[u] < min and sptSet[u] == False:
 				min = dist[u]
@@ -59,9 +50,7 @@ class Graph():
 
 		return min_index
 
-	# Function that implements Dijkstra's single source
-	# shortest path algorithm for a graph represented
-	# using adjacency matrix representation
+
 	def dijkstra(self, src):
 
 		dist = [sys.maxsize] * self.V
@@ -75,11 +64,8 @@ class Graph():
 		        if self.graph[x][y]>0 and sptSet[y]==False and dist[y]>dist[x]+self.graph[x][y]:
 		            dist[y]=dist[x]+self.graph[x][y]
 
-
-
 		self.printSolution(dist)
 
-# Driver program
 g = Graph(9)
 g.graph = [[0, 4, 0, 0, 0, 0, 0, 8, 0],
 		[4, 0, 8, 0, 0, 0, 0, 11, 0],
